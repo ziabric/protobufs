@@ -1,0 +1,23 @@
+syntax = 'proto3';
+
+package users;
+option go_package = ".";
+
+enum UserRole {
+  User = 0;
+  Admin = 1;
+}
+
+message UserAddRequest {
+  string firstname = 1;
+  string lastname = 2;
+  UserRole role = 3;
+}
+
+message UserAddResponse {
+  string user_id = 1;
+}
+
+service UserAdd {
+  rpc UserAdd (UserAddRequest) returns (UserAddResponse);
+}

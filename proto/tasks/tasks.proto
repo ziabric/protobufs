@@ -1,0 +1,28 @@
+syntax = 'proto3';
+
+package tasks;
+option go_package = ".";
+
+message AddTaskRequest {
+  string user_id = 1;
+  string title = 2;
+  string desc = 3;
+}
+
+message AddTaskResponse {
+  bool flag = 1;
+  string task_id = 2;
+}
+
+message CompliteTaskRequest {
+  string task_id = 1;
+}
+
+message CompliteTaskResponse {
+  bool complite_flag = 1;
+}
+
+service Task {
+  rpc CompliteTask (CompliteTaskRequest) returns (CompliteTaskResponse);
+  rpc AddTask (AddTaskRequest) returns (AddTaskResponse);
+}

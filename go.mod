@@ -1,3 +1,3 @@
-module protoExample
+module protobufs
 
 go 1.23
